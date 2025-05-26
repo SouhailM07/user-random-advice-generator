@@ -1,0 +1,46 @@
+# Ignore the .env file containing environment-specific configuration
+.env
+
+# Ignore vendor directory (Composer dependencies)
+vendor/
+
+# Ignore node_modules directory (Node.js dependencies)
+node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore cache directories
+cache/
+tmp/
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore compiled files
+*.compiled
+
+# Ignore PHPUnit result cache
+.phpunit.result.cache
+
+# Ignore coverage reports
+coverage/
+
+# Ignore Composer lock file (optional)
+composer.lock
+
+# Ignore npm lock file (optional)
+package-lock.json
+# custom
+project-files/
+*.txt
+helpers/bootstrap-5.0.2-dist/
