@@ -8,7 +8,7 @@
     if (!$advices) {
         $advices = [];
     } else {
-        $advices = $advices;
+        $advices = array_reverse($advices);
     }
 ?>
 <!DOCTYPE html>
@@ -44,14 +44,18 @@
                 </div>
                 <ul class="space-y-[1rem]">
                     <?php foreach ($advices as $advice){ ?>
-            <form action="/advices/delete" method="post" class="flex gap-[1.2rem]">
-                <p class="text-white border-2 border-white p-2 rounded-md w-full">
-                    <?= $advice["content"]?>
-                </p>
-                <input type="number" name="id" hidden value="<?=$advice['id']?>">
-                <button class="hover:scale-110 duration-200 py-2 px-4 rounded-md text-white bg-red-400">Delete</button>
-            </form>
-                    <?php }; ?>
+                        <div class="flex gap-[1.2rem]">
+                <form action="/advices/update" method="post" class="w-full">
+                        <input type="number" name="id" hidden value="<?=$advice['id']?>">
+                        <input name="newAdvice" value="<?= $advice["content"]?>" class="text-white border-2 border-white p-2 rounded-md w-full"/>
+                        <button class="hidden">Update</button>
+                </form>
+                    <form action="/advices/delete" method="post" class="flex gap-[1.2rem]">
+                                <input type="number" name="id" hidden value="<?=$advice['id']?>">
+                                <button class="hover:scale-110 duration-200 py-2 px-4 rounded-md text-white bg-red-400">Delete</button>
+                            </form>
+                        </div>
+                            <?php }; ?>
                 </ul>
             </article>
         </section>

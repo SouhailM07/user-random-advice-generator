@@ -18,14 +18,27 @@ function definedRoutes(RouteCollector $r){
     $r->get('/advices', function () {
         include(__DIR__.'/../views/advices.view.php');
     });
+    $r->post("/advices/update",function(){
+        $newAdvice = $_POST['newAdvice'] ?? '';
+        $id = $_POST['id'] ?? null; 
+        if($newAdvice && $id){
+            $adviceController = new AdviceController();
+            $adviceController->handle_updateAdvice( $id,$newAdvice);
+            // * redirect to the advices page after creation
+            header('Location: /advices'); 
+        } else {
+            echo "Error: Invalid input. ";
+            echo "$id, $newAdvice";
+        }
+    });
     $r->post('/advices', function () {
-        // Handle advice creation logic here
+        // * handle advice creation logic here
         $advice = $_POST['advice'] ?? '';
         $userId = $_POST['userId'] ?? null; 
         if ($advice && $userId) {
             $adviceController = new AdviceController();
             $adviceController->handle_createAdvice( $advice,$userId);
-            // Redirect to the advices page after creation
+            // * redirect to the advices page after creation
             header('Location: /advices'); 
         } else {
             echo "Error: Invalid input. ";

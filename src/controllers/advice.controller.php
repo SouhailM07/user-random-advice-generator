@@ -24,6 +24,9 @@ class AdviceController extends Advice {
         return $this->createAdvice($advice, $userId);
     }
 
+    public function handle_updateAdvice(int $id,string $value){
+        return $this->updateAdvice($id,$value);
+    }
     public function handle_deleteAdvice(int $id) {
         return $this->deleteAdvice($id);
     }

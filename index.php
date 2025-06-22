@@ -1,14 +1,17 @@
 <?php 
 
 require_once "vendor/autoload.php";
+// 
 require_once "./src/models/dbh.model.php";
 require_once "./src/models/auth.model.php";
 require_once "./src/models/advice.model.php";
+require_once "./src/models/user.model.php";
+// 
 require_once "./src/controllers/advice.controller.php";
 require_once "./src/controllers/auth.controller.php";
-require_once "./src/routes/web.php";
-require_once "./src/models/user.model.php";
 require_once "./src/controllers/user.controller.php";
+// 
+require_once "./src/routes/web.php";
 
 use FastRoute\RouteCollector;
 

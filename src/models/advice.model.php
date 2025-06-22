@@ -31,7 +31,16 @@ class Advice extends Dbh {
         }
     }
 
-
+    protected function updateAdvice(int $id,string $value){
+        try {
+            $sql = "UPDATE advices SET content = ? WHERE id = ?";
+            $stmt = $this->connectDB()->prepare($sql);
+            $stmt->execute([$value,$id]);
+            return ["message" => "Advice Updated successfully", "status" => 200];
+        } catch (PDOException $e) {
+            return ["message" => $e->getMessage(), "status" => 500];
+        }
+    }
     protected function deleteAdvice(int $id) {
         try {
             $sql = "DELETE FROM advices WHERE id = ?";
